@@ -16,7 +16,27 @@ public class _05_LongChipCompetition {
 
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
+		lcc.findChip();
 		
+	}
+	public void findChip() {
+		Beatle beatle;
+		ArrayList<Chip> chipLength;
+		Double longChip = 0.0;
+		String name = "";
+		for (int i = 0; i < theBeatles.size(); i++) {
+			beatle = theBeatles.get(i);
+			chipLength = beatle.getChips();
+			for (int j = 0; j < chipLength.size(); j++) {
+				
+				if (chipLength.get(j).getLength() > longChip) {
+					longChip = chipLength.get(j).getLength();
+					name = beatle.getName();
+				}
+			}
+		}
+		System.out.println(name + " has the longest chip at: " + longChip);
 	}
 	
 	private void initializeBeatles() {
@@ -27,7 +47,7 @@ public class _05_LongChipCompetition {
 		theBeatles.add(george);
 		theBeatles.add(john);
 		theBeatles.add(paul);
-		theBeatles.add(ringo);
+		theBeatles.add(ringo); 
 	}
 	
 	public ArrayList<Beatle> getTheBand(){
@@ -48,7 +68,9 @@ class Beatle {
 		int numberOfChips = new Random().nextInt(100);
 		for (int i = 0; i < numberOfChips; i++) {
 			chips.add(new Chip(new Random().nextDouble() * 10));
+			System.out.println(chips);
 		}
+		
 	}
 
 	public ArrayList<Chip> getChips() {
@@ -64,7 +86,9 @@ class Chip {
 	private double length;
 
 	public double getLength() {
+		System.out.println(length);
 		return length;
+		
 	}
 
 	Chip(double d) {
