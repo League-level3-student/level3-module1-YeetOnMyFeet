@@ -64,6 +64,7 @@ public class _02_TextUndoRedo implements KeyListener{
 		}
 		if (KeyEvent.VK_1 == e.getKeyChar()) {
 			System.out.println("Undo");
+			System.out.println(stack);
 			stack.pop();
 			label.setText(label.getText() + stack.pop());
 		}
